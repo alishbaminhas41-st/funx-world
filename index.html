@@ -1,1 +1,103 @@
 
+<!DOCTYPE html>
+<html>
+<head>
+<title>FUNX</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  margin: 0;
+  font-family: Arial;
+  background: #f1edff;
+  color: #292044;
+  text-align: center;
+}
+header {
+  background: #211b43;
+  color: white;
+  padding: 20px;
+  font-size: 32px;
+  font-weight: bold;
+}
+header span { color: #22c7ff; }
+.hero {
+  background: linear-gradient(135deg,#7055f7,#22c7ff);
+  color: white;
+  padding: 65px 15px;
+}
+h1 { font-size: 40px; }
+section { padding: 25px; }
+.card {
+  background: white;
+  margin: 15px auto;
+  padding: 25px;
+  border-radius: 18px;
+  max-width: 350px;
+}
+button {
+  background: #7055f7;
+  color: white;
+  border: 0;
+  padding: 12px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+<header>FUN<span>X</span></header>
+
+<div class="hero">
+<h1>YOUR WORLD. YOUR FUN.</h1>
+<p>Play • Explore • Discover</p>
+<h2>Welcome to FUNX!</h2>
+</div>
+
+<section>
+<h2>🎮 GAME ZONE</h2>
+<div class="card">
+<h3>Guess the Number</h3>
+<p>Guess a number between 1 and 5</p>
+<input id="guess" type="number">
+<button onclick="play()">Play</button>
+<p id="result"></p>
+</div>
+
+<h2>🧠 QUIZ ZONE</h2>
+<div class="card">
+<p>Which is the largest planet?</p>
+<button onclick="document.getElementById('answer').innerText='Correct! Jupiter 🌟'">Jupiter</button>
+<button onclick="document.getElementById('answer').innerText='Try again!'">Earth</button>
+<p id="answer"></p>
+</div>
+
+<h2>🌍 DISCOVER</h2>
+<div class="card">
+<h3>📱 Technology</h3>
+<p>Explore amazing gadgets!</p>
+</div>
+<div class="card">
+<h3>🚗 Luxury Cars</h3>
+<p>Discover expensive cars!</p>
+</div>
+<div class="card">
+<h3>💎 Luxury World</h3>
+<p>Explore the world's fascinating treasures!</p>
+</div>
+</section>
+
+<footer>FUNX © 2026</footer>
+
+<script>
+function play() {
+ let n = Number(document.getElementById("guess").value);
+ let secret = Math.floor(Math.random()*5)+1;
+ document.getElementById("result").innerText =
+ n===secret ? "You won! 🎉" : "Try again! Number was "+secret;
+}
+</script>
+
+</body>
+</html>
+
