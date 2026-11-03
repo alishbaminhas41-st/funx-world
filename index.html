@@ -4,386 +4,356 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FUNX — Your World. Your Fun.</title>
+<title>FUNX WORLD</title>
 <style>
-:root{--bg:#090817;--panel:#15132a;--blue:#655cff;--cyan:#27c9ff;--white:#f7f6ff;--muted:#aaa7c5}
-*{box-sizing:border-box}
-body{margin:0;background:radial-gradient(ellipse at top,#21194b 0%,#090817 60%);color:var(--white);font-family:Arial,sans-serif;min-height:100vh}
-header{padding:22px 6%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #ffffff18}
-.logo{font-size:29px;font-weight:900;letter-spacing:4px;background:linear-gradient(90deg,#fff,#7e78ff,#26d5ff);background-clip:text;color:transparent}
-.tag{font-size:10px;letter-spacing:3px;color:var(--muted);margin-top:5px}
-button{border:0;border-radius:12px;padding:12px 18px;background:linear-gradient(120deg,var(--blue),#248bff);color:white;font-weight:700;cursor:pointer}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#080817;color:white;min-height:100vh}
+header{padding:18px 5%;display:flex;justify-content:space-between;align-items:center;background:#101027;border-bottom:1px solid #34345d;position:sticky;top:0;z-index:5}
+.logo{font-size:25px;font-weight:900;color:#bca7ff;letter-spacing:2px}
+button{cursor:pointer;border:0;border-radius:10px;padding:12px 17px;background:linear-gradient(120deg,#713bff,#258bff);color:white;font-weight:bold}
 button:hover{filter:brightness(1.2)}
-main{max-width:1150px;margin:auto;padding:28px 18px 60px}
-.hero{padding:35px 22px;text-align:center;border:1px solid #ffffff20;border-radius:25px;background:linear-gradient(130deg,#29205b,#11152f);margin-bottom:28px}
-.hero h1{font-size:clamp(32px,7vw,58px);margin:8px 0;background:linear-gradient(90deg,#fff,#9b94ff,#40d9ff);background-clip:text;color:transparent}
-.hero p{color:var(--muted);line-height:1.6}
-.eyebrow{color:#63d9ff;font-size:12px;letter-spacing:3px;font-weight:bold}
-.section-title{font-size:22px;margin:25px 0 15px}
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
-.tile{background:linear-gradient(145deg,#1d1a3b,#111126);border:1px solid #ffffff19;border-radius:19px;padding:19px 14px;min-height:135px;cursor:pointer;transition:.2s}
-.tile:hover{transform:translateY(-4px);border-color:#7770ff}
-.tile .emoji{font-size:29px}
-.tile h3{margin:13px 0 6px;font-size:16px}
-.tile p{color:var(--muted);font-size:12px;margin:0;line-height:1.5}
-.head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:24px}
-.head h1{font-size:28px;margin:5px 0}
-.head p{color:var(--muted);font-size:13px;margin:0}
-.head button{white-space:nowrap}
-.card{background:var(--panel);border:1px solid #ffffff20;border-radius:18px;padding:20px;margin:14px 0}
-.body{text-align:center;max-width:650px;margin:25px auto}
-input,select{width:100%;padding:13px;margin:9px 0;background:#0d0c20;border:1px solid #514b79;border-radius:11px;color:white;font-size:15px}
-.result{font-size:35px;letter-spacing:8px;margin:20px}
-.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-.product{background:var(--panel);border:1px solid #ffffff1c;border-radius:16px;overflow:hidden}
-.product img{width:100%;height:135px;object-fit:cover;background:#24213d}
-.product div{padding:12px}
-.product h3{font-size:15px;margin:3px 0 7px}
-.product p{font-size:12px;color:var(--muted);line-height:1.5;margin:0}
-footer{text-align:center;padding:25px;color:#85819f;font-size:11px;letter-spacing:2px}
-@media(min-width:650px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.cards{grid-template-columns:repeat(3,minmax(0,1fr))}.hero{padding:55px}.product img{height:175px}}
-@media(min-width:950px){.grid{grid-template-columns:repeat(4,minmax(0,1fr))}.cards{grid-template-columns:repeat(4,minmax(0,1fr))}}
+nav{display:flex;gap:8px;flex-wrap:wrap}
+nav button{padding:9px 12px;font-size:12px}
+main{max-width:1150px;margin:auto;padding:28px 18px}
+.page{display:none}
+.page.active{display:block}
+.hero{padding:65px 25px;border-radius:22px;background:linear-gradient(130deg,#25105a,#102c65,#111127);text-align:center;margin-bottom:30px}
+.hero h1{font-size:clamp(35px,8vw,65px);margin-bottom:12px}
+.hero p{color:#d2c9ff;font-size:16px;margin-bottom:22px}
+h2{margin:22px 0 16px;color:#c8b8ff}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:17px}
+.card{background:#15152e;border:1px solid #34345c;border-radius:16px;overflow:hidden;cursor:pointer;transition:.2s}
+.card:hover{transform:translateY(-4px);border-color:#9b80ff}
+.card img{width:100%;height:145px;object-fit:cover}
+.cardbody{padding:16px}
+.card h3{margin-bottom:8px}
+.card p{font-size:13px;color:#b9b9d1;line-height:1.5}
+.panel{background:#15152e;border:1px solid #34345c;border-radius:16px;padding:22px;margin:15px 0}
+.panel button{margin:6px 4px 6px 0}
+.back{background:#33334d;margin-bottom:15px}
+.choice{background:#25254b;padding:16px;border-radius:12px;margin:8px 0;cursor:pointer}
+.choice:hover{background:#494078}
+input{padding:13px;border-radius:9px;border:1px solid #777;background:#20203b;color:white;width:100%;margin:10px 0}
+.small{font-size:12px;color:#aaa}
+footer{text-align:center;padding:28px;color:#999;border-top:1px solid #30304b;margin-top:40px}
+@media(max-width:600px){
+ header{align-items:flex-start;gap:12px;flex-direction:column}
+ nav{gap:5px}
+ nav button{font-size:11px;padding:8px}
+ .hero{padding:42px 15px}
+}
 </style>
 </head>
 <body>
+
 <header>
-<div><div class="logo">FUNX</div><div class="tag">YOUR WORLD. YOUR FUN.</div></div>
-<button onclick="home()">⌂ Home</button>
+<div class="logo">FUNX WORLD ✦</div>
+<nav>
+<button onclick="home()">Home</button>
+<button onclick="show('games')">Games</button>
+<button onclick="show('quiz')">Quiz</button>
+<button onclick="show('best')">Bestsellers</button>
+<button onclick="show('luxury')">Luxury</button>
+<button onclick="show('daily')">Daily</button>
+</nav>
 </header>
-<main id="app"></main>
-<footer>FUNX © 2026 · YOUR WORLD. YOUR FUN.</footer>
-<script>
-const app=document.getElementById("app");
 
-const sections=[
-["🎮","Games","Play fun mini games","gamesPage()"],
-["🧠","Quiz Zone","Test your knowledge","quizHome()"],
-["🛍️","Bestseller Explorer","Discover interesting products","explorer()"],
-["💎","Luxury World","Explore extraordinary things","luxuryPage()"],
-["⚡","This or That","Choose your favourites","thisPage()"],
-["🏆","Daily Challenge","A fresh brain teaser","dailyPage()"]
-];
+<main>
 
-const products=[
-["Wireless Headphones","Technology","Enjoy music with wireless audio.","https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600"],
-["Smart Watch","Technology","A modern wearable gadget.","https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600"],
-["Running Shoes","Fashion","Comfortable everyday footwear.","https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600"],
-["Luxury Perfume","Beauty","A stylish fragrance discovery.","https://images.unsplash.com/photo-1541643600914-78b084683601?w=600"],
-["Camera","Technology","Capture memorable moments.","https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=600"],
-["Backpack","Fashion","A practical everyday bag.","https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600"],
-["Sunglasses","Fashion","A classic accessory.","https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=600"],
-["Gaming Controller","Gaming","A controller for gaming fun.","https://images.unsplash.com/photo-1600080972464-8e5f35f63d08?w=600"]
-];
-
-const lux=[
-["Sports Car","Cars","A look at modern performance-car design.","https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=700"],
-["Dream Mansion","Homes","Explore impressive architecture and interiors.","https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=700"],
-["Private Jet","Jets","A glimpse into private aviation.","https://images.unsplash.com/photo-1540962351504-03099e0a754b?w=700"],
-["Luxury Yacht","Yachts","Discover elegant yacht design.","https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?w=700"],
-["Designer Watch","Watches","A timeless style inspiration.","https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=700"],
-["Luxury Hotel","Hotels","Beautiful destinations and hospitality.","https://images.unsplash.com/photo-1566073771259-6a8506099945?w=700"]
-];
-
-function home(){
-app.innerHTML=`
-<section class="hero">
-<div class="eyebrow">WELCOME TO YOUR WORLD</div>
-<h1>Explore. Play. Discover.</h1>
-<p>One world, endless possibilities. Welcome to FUNX — your place for games, quizzes, discoveries and fun.</p>
-<button onclick="gamesPage()">Explore FUNX →</button>
-</section>
-<h2 class="section-title">Explore Your World</h2>
-<div class="grid">
-${sections.map(s=>`<div class="tile" onclick="${s[3]}"><div class="emoji">${s[0]}</div><h3>${s[1]}</h3><p>${s[2]}</p></div>`).join("")}
-</div>`;
-}
-
-function head(title,description=""){
-return `<div class="head"><div><h1>${title}</h1><p>${description}</p></div><button onclick="home()">← Home</button></div>`;
-}
-
-function gamesPage(){
-app.innerHTML=head("🎮 Games","Choose a game and have fun.")+`
-<div class="grid">
-<div class="tile" onclick="numberGame()"><div class="emoji">🔢</div><h3>Number Guess</h3><p>Find the hidden number.</p></div>
-<div class="tile" onclick="ticGame()"><div class="emoji">⭕</div><h3>Tic Tac Toe</h3><p>Challenge another player.</p></div>
-<div class="tile" onclick="memoryGame()"><div class="emoji">🧩</div><h3>Memory Match</h3><p>Find matching pairs.</p></div>
-<div class="tile" onclick="wordGame()"><div class="emoji">🔤</div><h3>Word Scramble</h3><p>Unscramble the letters.</p></div>
-</div>`;
-}
-
-function numberGame(){
-window.secret=Math.floor(Math.random()*20)+1;
-window.tries=0;
-app.innerHTML=head("🔢 Number Guess","Guess a number between 1 and 20.")+`
-<div class="card body">
-<input id="guess" type="number" min="1" max="20" placeholder="Enter your guess">
-<button onclick="checkGuess()">Check Guess</button>
-<p id="feedback">Let's see if you can find it!</p>
-<button onclick="numberGame()">New Game</button>
-</div>`;
-}
-
-function checkGuess(){
-let n=Number(document.getElementById("guess").value);
-let f=document.getElementById("feedback");
-if(!Number.isInteger(n)||n<1||n>20){f.textContent="Enter a whole number from 1 to 20.";return}
-window.tries++;
-f.textContent=n===window.secret?"🎉 You got it! Attempts: "+window.tries:n<window.secret?"Too low! Try a bigger number.":"Too high! Try a smaller number.";
-}
-
-function ticGame(){
-window.board=Array(9).fill("");
-window.turn="X";
-drawTic();
-}
-
-function drawTic(){
-app.innerHTML=head("⭕ Tic Tac Toe","Two players · X starts.")+`
-<div class="body">
-<h3 id="ticmsg">Player X's turn</h3>
-<div class="grid">${board.map((v,i)=>`<button style="font-size:30px;min-height:75px" onclick="playTic(${i})">${v||" "}</button>`).join("")}</div>
-<br><button onclick="ticGame()">Restart Game</button>
-</div>`;
-}
-
-function ticWinner(){
-for(let [a,b,c] of [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]]){
-if(board[a]&&board[a]===board[b]&&board[b]===board[c])return board[a];
-}
-return "";
-}
-
-function playTic(i){
-if(board[i]||ticWinner()||board.every(Boolean))return;
-board[i]=turn;
-let w=ticWinner();
-let draw=board.every(Boolean)&&!w;
-let next=turn==="X"?"O":"X";
-drawTic();
-document.getElementById("ticmsg").textContent=w?w+" wins! 🎉":draw?"It's a draw!":"Player "+next+"'s turn";
-turn=next;
-if(w||draw)turn="";
-}
-
-function memoryGame(){
-window.mem=["🍎","🚀","🎧","⭐","🍎","🚀","🎧","⭐"].sort(()=>Math.random()-.5);
-window.opened=[];
-window.found=[];
-drawMemory();
-}
-
-function drawMemory(){
-app.innerHTML=head("🧩 Memory Match","Find all four matching pairs.")+`
-<div class="body"><div class="grid">${mem.map((v,i)=>`<button style="font-size:29px;min-height:75px" onclick="flip(${i})">${found.includes(i)||opened.includes(i)?v:"❔"}</button>`).join("")}</div>
-<p id="memmsg">${found.length===8?"🎉 All pairs matched!":"Matched pairs: "+found.length/2+"/4"}</p>
-<button onclick="memoryGame()">Restart</button></div>`;
-}
-
-function flip(i){
-if(found.includes(i)||opened.includes(i)||opened.length===2)return;
-opened.push(i);
-drawMemory();
-if(opened.length===2){
-if(mem[opened[0]]===mem[opened[1]]){
-found.push(...opened);opened=[];drawMemory();
-}else{
-setTimeout(()=>{opened=[];drawMemory()},850);
-}
-}
-}
-
-function wordGame(){
-let words=["PLANET","GARDEN","SCHOOL","LAPTOP","ORANGE","PYTHON","ROCKET","PUZZLE"];
-window.word=words[Math.floor(Math.random()*words.length)];
-let scrambled=word.split("").sort(()=>Math.random()-.5).join("");
-if(scrambled===word)scrambled=word.slice(1)+word[0];
-app.innerHTML=head("🔤 Word Scramble","Put the letters in the correct order.")+`
-<div class="card body"><div class="result">${scrambled}</div>
-<input id="wordanswer" placeholder="Type your answer">
-<button onclick="checkWord()">Check</button>
-<p id="wordmsg"></p><button onclick="wordGame()">New Word</button></div>`;
-}
-
-function checkWord(){
-let a=document.getElementById("wordanswer").value.toUpperCase().trim();
-document.getElementById("wordmsg").textContent=a===word?"🎉 Correct!":"Not quite. Try again!";
-}
-</script>
-</body>
-</html>
-
-const quiz={
-"GK":[
-["Which is the largest ocean?","Atlantic","Indian","Pacific","Arctic",2],
-["How many days are in a leap year?","365","366","364","360",1],
-["Which is the capital of Japan?","Seoul","Tokyo","Beijing","Bangkok",1]],
-"Science":[
-["Which organ pumps blood?","Lungs","Heart","Brain","Kidney",1],
-["Which gas do plants absorb?","Oxygen","Carbon dioxide","Helium","Nitrogen",1],
-["Which planet is called the Red Planet?","Venus","Mars","Jupiter","Saturn",1]],
-"Technology":[
-["CPU means?","Central Processing Unit","Computer Power Unit","Core Program Unit","Central Personal User",0],
-["Who makes the iPhone?","Samsung","Apple","Google","Sony",1],
-["AI means?","Artificial Intelligence","Automatic Internet","Advanced Input","Applied Info",0]],
-"Space":[
-["Closest star to Earth?","Sirius","Sun","Polaris","Vega",1],
-["Planet famous for its rings?","Mars","Saturn","Earth","Mercury",1],
-["Our galaxy is called?","Andromeda","Milky Way","Whirlpool","Sombrero",1]],
-"Geography":[
-["Largest continent?","Africa","Asia","Europe","Australia",1],
-["Eiffel Tower is in?","Rome","London","Paris","Madrid",2],
-["Boot-shaped country?","Italy","India","Brazil","Japan",0]],
-"Animals":[
-["Fastest land animal?","Lion","Cheetah","Horse","Leopard",1],
-["Baby frog is called?","Cub","Tadpole","Calf","Chick",1],
-["Which mammal can fly?","Bat","Penguin","Ostrich","Koala",0]],
-"History":[
-["Great Wall is in?","India","China","Japan","Egypt",1],
-["First person on the Moon?","Yuri Gagarin","Neil Armstrong","Buzz Aldrin","John Glenn",1],
-["Pyramids of Giza are in?","Greece","Egypt","Mexico","Italy",1]],
-"Bollywood":[
-["Bollywood is based in?","Delhi","Mumbai","Jaipur","Kolkata",1],
-["Which is a film award?","Grammy","Filmfare","Tony","Pulitzer",1],
-["Hindi cinema is associated with?","Mumbai","Paris","Tokyo","London",0]],
-"Math & Logic":[
-["12 × 8 = ?","86","96","108","88",1],
-["Half of 150?","65","70","75","80",2],
-["2, 4, 8, 16, next?","18","24","32","30",2]]
-};
-
-function quizHome(){
-app.innerHTML=head("🧠 Quiz Zone","Choose a category and test yourself.")+
-`<div class="grid">${Object.keys(quiz).map(c=>`<div class="tile" onclick="startQuiz('${c}')"><div class="emoji">🧠</div><h3>${c}</h3><p>3 random questions</p></div>`).join("")}</div>`;
-}
-
-function startQuiz(cat){
-window.quizList=[...quiz[cat]].sort(()=>Math.random()-.5);
-window.qi=0;window.score=0;window.quizCat=cat;
-showQuestion();
-}
-
-function showQuestion(){
-if(qi>=quizList.length){
-app.innerHTML=head("🏆 Quiz Complete","Your results are ready.")+
-`<div class="card body"><div class="result">${score}/${quizList.length}</div><h2>${score===3?"Excellent! 🎉":score>=2?"Great work!":"Good try! Keep learning."}</h2><button onclick="startQuiz(quizCat)">Play Again</button><button onclick="quizHome()">Categories</button></div>`;
-return;
-}
-let q=quizList[qi];
-app.innerHTML=head("🧠 "+quizCat,"Question "+(qi+1)+" of "+quizList.length)+
-`<div class="card body"><h2>${q[0]}</h2>
-<div class="grid">${q.slice(1,5).map((a,i)=>`<button onclick="answerQuiz(${i})">${a}</button>`).join("")}</div>
-<p id="qfeedback"></p></div>`;
-}
-
-function answerQuiz(i){
-let q=quizList[qi];
-let f=document.getElementById("qfeedback");
-let buttons=document.querySelectorAll(".body .grid button");
-buttons.forEach(b=>b.disabled=true);
-if(i===q[5]){score++;f.textContent="🎉 Correct answer!";}
-else f.textContent="Not quite! Correct answer: "+q[q[5]+1];
-let next=document.createElement("button");
-next.textContent=qi===quizList.length-1?"See Result":"Next Question →";
-next.onclick=()=>{qi++;showQuestion()};
-f.after(next);
-}
-
-function explorer(){
-app.innerHTML=head("🛍️ Bestseller Explorer","Discover featured products and interesting finds.")+
-`<input id="searchProduct" placeholder="Search products or categories..." oninput="filterProducts()">
-<div class="cards" id="productList"></div>
-<p class="tag">Featured discoveries · Availability and popularity may vary.</p>`;
-filterProducts();
-}
-
-function filterProducts(){
-let box=document.getElementById("productList");
-if(!box)return;
-let q=document.getElementById("searchProduct").value.toLowerCase();
-let list=products.filter(p=>p.join(" ").toLowerCase().includes(q));
-box.innerHTML=list.length?list.map(p=>`<div class="product"><img src="${p[3]}" alt="${p[0]}"><div><h3>${p[0]}</h3><p>${p[1]} · ${p[2]}</p></div></div>`).join(""):"<p>No matching products found.</p>";
-}
-
-function luxuryPage(){
-app.innerHTML=head("💎 Luxury World","Explore extraordinary design and experiences.")+
-`<div class="cards">${lux.map(p=>`<div class="product"><img src="${p[3]}" alt="${p[0]}"><div><h3>${p[0]}</h3><p>${p[1]} · ${p[2]}</p></div></div>`).join("")}</div>`;
-}
-
-const choices=[
-["🏖️ Beach","⛰️ Mountains"],
-["📱 iPhone","📱 Samsung"],
-["🍕 Pizza","🍔 Burger"],
-["🏎️ Sports Car","🚙 SUV"],
-["🌆 City","🌳 Countryside"],
-["🎮 Gaming","📚 Reading"],
-["🇯🇵 Japan","🇮🇹 Italy"],
-["🌅 Sunrise","🌇 Sunset"],
-["☕ Tea","🥤 Coffee"],
-["🎬 Movies","🎵 Music"]
-];
-
-let choiceIndex=0;
-
-function thisPage(){
-choiceIndex=Math.floor(Math.random()*choices.length);
-drawChoice();
-}
-
-function drawChoice(){
-let pair=choices[choiceIndex];
-app.innerHTML=head("⚡ This or That","Choose your favourite!")+
-`<div class="card body">
-<div class="grid">
-<button style="font-size:20px;min-height:120px" onclick="chooseThis(0)">${pair[0]}</button>
-<button style="font-size:20px;min-height:120px" onclick="chooseThis(1)">${pair[1]}</button>
+<section id="home" class="page active">
+<div class="hero">
+<h1>WELCOME TO FUNX WORLD</h1>
+<p>Explore • Play • Discover • Enjoy</p>
+<button onclick="show('games')">Explore Now →</button>
 </div>
-<p id="choiceMsg">Which one would you choose?</p>
-<button onclick="thisPage()">Next Pair →</button>
-</div>`;
+<h2>Explore Your World</h2>
+<div class="grid">
+<div class="card" onclick="show('games')"><img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=600"><div class="cardbody"><h3>🎮 Gaming Zone</h3><p>Play fun interactive games.</p></div></div>
+<div class="card" onclick="show('quiz')"><img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=600"><div class="cardbody"><h3>🧠 Quiz Zone</h3><p>Test your knowledge.</p></div></div>
+<div class="card" onclick="show('best')"><img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600"><div class="cardbody"><h3>⭐ Bestsellers</h3><p>Discover popular products.</p></div></div>
+<div class="card" onclick="show('luxury')"><img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600"><div class="cardbody"><h3>💎 Luxury World</h3><p>Explore luxury and style.</p></div></div>
+<div class="card" onclick="show('thisthat')"><img src="https://images.unsplash.com/photo-1490730141103-6cac27aaab94?w=600"><div class="cardbody"><h3>⚡ This or That</h3><p>Make your choices.</p></div></div>
+<div class="card" onclick="show('daily')"><img src="https://images.unsplash.com/photo-1490730141103-6cac27aaab94?w=600"><div class="cardbody"><h3>🔥 Daily Challenge</h3><p>Try a new challenge.</p></div></div>
+</div>
+</section>
+
+<section id="games" class="page">
+<button class="back" onclick="home()">← Home</button>
+<h2>🎮 Gaming Zone</h2>
+<div class="grid">
+<div class="card" onclick="game('guess')"><div class="cardbody"><h3>🔢 Number Guess</h3><p>Guess a number from 1 to 20.</p></div></div>
+<div class="card" onclick="game('rps')"><div class="cardbody"><h3>✊ Rock Paper Scissors</h3><p>Play against the computer.</p></div></div>
+<div class="card" onclick="game('math')"><div class="cardbody"><h3>➕ Quick Math</h3><p>Solve random maths questions.</p></div></div>
+<div class="card" onclick="game('memory')"><div class="cardbody"><h3>🧠 Memory Game</h3><p>Match the hidden pairs.</p></div></div>
+<div class="card" onclick="game('word')"><div class="cardbody"><h3>🔤 Word Scramble</h3><p>Unscramble the letters.</p></div></div>
+</div>
+<div id="gamearea" class="panel">Choose a game to start!</div>
+</section>
+
+<section id="quiz" class="page">
+<button class="back" onclick="home()">← Home</button>
+<h2>🧠 Quiz World</h2>
+<p>Choose a category and answer changing questions!</p>
+<div id="categories" class="grid"></div>
+<div id="quizarea" class="panel">Choose a category.</div>
+</section>
+
+<section id="best" class="page">
+<button class="back" onclick="home()">← Home</button>
+<h2>⭐ Bestseller Explorer</h2>
+<p>Explore different product categories.</p>
+<div id="products" class="grid"></div>
+</section>
+
+<section id="luxury" class="page">
+<button class="back" onclick="home()">← Home</button>
+<h2>💎 Luxury World</h2>
+<p>Discover luxury-inspired collections.</p>
+<div class="grid">
+<div class="card"><img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600"><div class="cardbody"><h3>Luxury Bags</h3><p>Explore designer-inspired bag styles.</p></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=600"><div class="cardbody"><h3>Luxury Watches</h3><p>Discover timeless watch designs.</p></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=600"><div class="cardbody"><h3>Luxury Shoes</h3><p>Explore premium footwear.</p></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?w=600"><div class="cardbody"><h3>Beauty</h3><p>Discover beauty collections.</p></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600"><div class="cardbody"><h3>Fashion</h3><p>Explore fashion inspiration.</p></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=600"><div class="cardbody"><h3>Luxury Living</h3><p>Discover elegant interiors.</p></div></div>
+</div>
+</section>
+
+<section id="thisthat" class="page">
+<button class="back" onclick="home()">← Home</button>
+<h2>⚡ This or That</h2>
+<div class="panel">
+<h3 id="question">Choose your favourite!</h3>
+<div id="choices"></div>
+<p id="choiceResult"></p>
+<button onclick="nextChoice()">Next Question →</button>
+</div>
+</section>
+
+<section id="daily" class="page">
+<button class="back" onclick="home()">← Home</button>
+<h2>🔥 Daily Challenge</h2>
+<div class="panel">
+<h3 id="dailyQuestion">Your challenge is waiting!</h3>
+<p>Try today's brain challenge.</p>
+<input id="dailyAnswer" placeholder="Write your answer">
+<button onclick="checkDaily()">Submit Answer</button>
+<p id="dailyResult"></p>
+<button onclick="newDaily()">New Challenge</button>
+</div>
+</section>
+
+</main>
+<footer>FUNX WORLD © 2026 | Explore Your Imagination ✦</footer>
+
+<script>
+const pages=['home','games','quiz','best','luxury','thisthat','daily'];
+function show(id){
+ pages.forEach(p=>document.getElementById(p).classList.remove('active'));
+ document.getElementById(id).classList.add('active');
+ window.scrollTo(0,0);
+}
+function home(){show('home')}
+
+// MINI GAMES
+let secret=0,answer=0,wordAnswer='',memoryCards=[],first=null,lock=false;
+function game(type){
+ let a=document.getElementById('gamearea');
+ if(type==='guess'){
+ secret=Math.floor(Math.random()*20)+1;
+ a.innerHTML='<h3>Guess the number (1-20)</h3><input id="g" type="number"><button onclick="guess()">Check</button><p id="gr"></p>';
+ }
+ if(type==='rps'){
+ a.innerHTML='<h3>Rock Paper Scissors</h3>'+['Rock','Paper','Scissors'].map(x=>`<button onclick="rps('${x}')">${x}</button>`).join('')+'<p id="rr"></p>';
+ }
+ if(type==='math'){
+ let x=Math.floor(Math.random()*12)+1,y=Math.floor(Math.random()*12)+1;
+ answer=x+y;
+ a.innerHTML=`<h3>${x} + ${y} = ?</h3><input id="m" type="number"><button onclick="mathCheck()">Check</button><p id="mr"></p>`;
+ }
+ if(type==='word'){
+ let words=['PLANET','GARDEN','PUZZLE','ORANGE','SCHOOL'];
+ wordAnswer=words[Math.floor(Math.random()*words.length)];
+ let scrambled=wordAnswer.split('').sort(()=>Math.random()-.5).join('');
+ a.innerHTML=`<h3>Unscramble: ${scrambled}</h3><input id="w"><button onclick="wordCheck()">Check</button><p id="wr"></p>`;
+ }
+ if(type==='memory'){
+ memoryCards=['🍎','🌟','🎮','🚀','🍎','🌟','🎮','🚀'].sort(()=>Math.random()-.5);
+ first=null;lock=false;
+ a.innerHTML='<h3>Match the pairs</h3><div class="grid" id="memorygrid"></div><p id="memr">Find all matching pairs!</p>';
+ memoryCards.forEach((v,i)=>{
+ let b=document.createElement('button');
+ b.textContent='❔';b.style.fontSize='25px';b.style.minHeight='65px';
+ b.onclick=()=>flip(b,i);
+ document.getElementById('memorygrid').appendChild(b);
+ });
+ }
+}
+function guess(){
+ let n=Number(document.getElementById('g').value);
+ document.getElementById('gr').textContent=n===secret?'Correct! 🎉':n<secret?'Try a higher number!':'Try a lower number!';
+}
+function rps(x){
+ let options=['Rock','Paper','Scissors'],c=options[Math.floor(Math.random()*3)];
+ let result=x===c?'Draw!':(x==='Rock'&&c==='Scissors'||x==='Paper'&&c==='Rock'||x==='Scissors'&&c==='Paper')?'You win! 🎉':'Computer wins!';
+ document.getElementById('rr').textContent=`You: ${x} | Computer: ${c} — ${result}`;
+}
+function mathCheck(){
+ document.getElementById('mr').textContent=Number(document.getElementById('m').value)===answer?'Correct! 🎉':'Try again!';
+}
+function wordCheck(){
+ document.getElementById('wr').textContent=document.getElementById('w').value.toUpperCase()===wordAnswer?'Correct! 🎉':'Try again!';
+}
+function flip(b,i){
+ if(lock||b.textContent!=='❔')return;
+ b.textContent=memoryCards[i];
+ if(!first){first=b;return}
+ lock=true;
+ let f=first;
+ if(f.textContent===b.textContent){
+ first=null;lock=false;
+ document.getElementById('memr').textContent='Great match! ⭐';
+ }else{
+ setTimeout(()=>{f.textContent='❔';b.textContent='❔';first=null;lock=false},800);
+ }
 }
 
-function chooseThis(i){
-let p=choices[choiceIndex][i];
-document.getElementById("choiceMsg").textContent="Your choice: "+p+" 🎉";
+// QUIZ: 10 CATEGORIES
+const quizzes={
+Science:[
+['Which planet is called the Red Planet?',['Mars','Earth','Venus'],'Mars'],
+['What gas do plants absorb?',['Oxygen','Carbon dioxide','Nitrogen'],'Carbon dioxide'],
+['What is H2O?',['Water','Salt','Oxygen'],'Water']
+],
+General:[
+['Capital of Japan?',['Tokyo','Seoul','Beijing'],'Tokyo'],
+['How many days are in a week?',['5','7','10'],'7'],
+['Largest ocean?',['Atlantic','Indian','Pacific'],'Pacific']
+],
+Math:[
+['12 × 5 = ?',['50','60','70'],'60'],
+['100 ÷ 10 = ?',['5','10','20'],'10'],
+['Square of 6?',['12','36','30'],'36']
+],
+Animals:[
+['Fastest land animal?',['Lion','Cheetah','Horse'],'Cheetah'],
+['Largest animal?',['Blue whale','Elephant','Giraffe'],'Blue whale']
+],
+Space:[
+['Our galaxy?',['Milky Way','Andromeda','Whirlpool'],'Milky Way'],
+['Sun is a...?',['Planet','Star','Moon'],'Star']
+],
+History:[
+['Pyramids are famous in?',['Egypt','Japan','Brazil'],'Egypt'],
+['Who was the first person on the Moon?',['Neil Armstrong','Yuri Gagarin','Buzz Aldrin'],'Neil Armstrong']
+],
+Technology:[
+['What does CPU stand for?',['Central Processing Unit','Computer Power Unit','Control Program Utility'],'Central Processing Unit'],
+['HTML is used to create?',['Web pages','Cars','Music'],'Web pages']
+],
+Geography:[
+['Largest continent?',['Asia','Europe','Africa'],'Asia'],
+['Which is a desert?',['Sahara','Amazon','Nile'],'Sahara']
+],
+English:[
+['Opposite of ancient?',['Modern','Old','Historic'],'Modern'],
+['Plural of child?',['Childs','Children','Childes'],'Children']
+],
+Sports:[
+['How many players in a football team on the field?',['11','9','7'],'11'],
+['Wimbledon is associated with?',['Tennis','Cricket','Hockey'],'Tennis']
+]
+};
+let currentQuestions=[],qi=0,score=0;
+const cat=document.getElementById('categories');
+Object.keys(quizzes).forEach(c=>{
+ let d=document.createElement('div');d.className='card';
+ d.innerHTML=`<div class="cardbody"><h3>${c}</h3><p>Play ${c} quiz</p><button>Start Quiz</button></div>`;
+ d.onclick=()=>startQuiz(c);cat.appendChild(d);
+});
+function startQuiz(c){
+ currentQuestions=[...quizzes[c]].sort(()=>Math.random()-.5);
+ qi=0;score=0;showQuiz();
+}
+function showQuiz(){
+ let q=currentQuestions[qi];
+ let a=document.getElementById('quizarea');
+ a.innerHTML=`<h3>Question ${qi+1}/${currentQuestions.length}</h3><p>${q[0]}</p><div id="qopts"></div><p id="qresult"></p>`;
+ q[1].sort(()=>Math.random()-.5).forEach(opt=>{
+ let b=document.createElement('button');b.textContent=opt;b.style.margin='8px 5px';
+ b.onclick=()=>{
+ document.querySelectorAll('#qopts button').forEach(x=>x.disabled=true);
+ let r=document.getElementById('qresult');
+ if(opt===q[2]){score++;r.textContent='Correct! 🎉'}
+ else r.textContent='Correct answer: '+q[2];
+ let n=document.createElement('button');n.textContent=qi===currentQuestions.length-1?'See Result':'Next';
+ n.onclick=()=>{qi++;if(qi<currentQuestions.length)showQuiz();else document.getElementById('quizarea').innerHTML=`<h3>Quiz Complete!</h3><p>Your score: ${score}/${currentQuestions.length}</p><button onclick="home()">Home</button>`};
+ a.appendChild(n);
+ };
+ document.getElementById('qopts').appendChild(b);
+ });
 }
 
-const riddles=[
-["What has keys but cannot open locks?","A piano."],
-["What has a face and two hands but no arms?","A clock."],
-["What gets wetter as it dries?","A towel."],
-["What has one eye but cannot see?","A needle."],
-["What goes up but never comes down?","Your age."],
-["What has many teeth but cannot bite?","A comb."],
-["What travels around the world in one corner?","A stamp."],
-["What has a neck but no head?","A bottle."],
-["What has words but never speaks?","A book."],
-["What can you catch but not throw?","A cold."]
+// BESTSELLER EXPLORER
+const products=[
+['Fashion','Fashion Collection','photo-1490481651871-ab68de25d43d'],
+['Technology','Technology Gadgets','photo-1498049794561-7780e7231661'],
+['Beauty','Beauty Collection','photo-1596462502278-27bfdc403348'],
+['Watches','Watch Collection','photo-1523170335258-f5ed11844a49'],
+['Shoes','Footwear Collection','photo-1549298916-b41d501d3772'],
+['Bags','Bag Collection','photo-1548036328-c9fa89d128fa'],
+['Books','Reading Collection','photo-1544947950-fa07a98d237f'],
+['Home','Home Collection','photo-1505693416388-ac5ce068fe85']
 ];
+const productBox=document.getElementById('products');
+products.forEach(p=>{
+ let d=document.createElement('div');d.className='card';
+ d.innerHTML=`<img src="https://images.unsplash.com/${p[2]}?w=600"><div class="cardbody"><h3>${p[0]}</h3><p>${p[1]}</p><button onclick="window.open('https://www.google.com/search?tbm=shop&q=${encodeURIComponent(p[0]+' bestsellers')}','_blank')">Explore Products ↗</button></div>`;
+ productBox.appendChild(d);
+});
 
-let currentRiddle=0;
-
-function dailyPage(){
-currentRiddle=Math.floor(Math.random()*riddles.length);
-drawRiddle();
+// THIS OR THAT
+const pairs=[
+['Beach 🏖️','Mountains 🏔️'],
+['Coffee ☕','Tea 🍵'],
+['Summer ☀️','Winter ❄️'],
+['Books 📚','Movies 🎬'],
+['Travel ✈️','Stay Home 🏠'],
+['Pizza 🍕','Burger 🍔'],
+['Gaming 🎮','Reading 📖'],
+['City 🌆','Countryside 🌳']
+];
+let pi=0;
+function nextChoice(){
+ let p=pairs[pi%pairs.length];pi++;
+ document.getElementById('question').textContent='Which one would you choose?';
+ document.getElementById('choices').innerHTML=p.map(x=>`<div class="choice" onclick="document.getElementById('choiceResult').textContent='You chose '+this.textContent">${x}</div>`).join('');
+ document.getElementById('choiceResult').textContent='';
 }
+nextChoice();
 
-function drawRiddle(){
-app.innerHTML=head("🏆 Daily Challenge","Give your brain a little workout.")+
-`<div class="card body">
-<div class="eyebrow">BRAIN TEASER</div>
-<h2>${riddles[currentRiddle][0]}</h2>
-<p id="riddleAnswer" style="color:#40d9ff;font-size:18px"></p>
-<button onclick="revealAnswer()">Reveal Answer</button>
-<button onclick="dailyPage()">Next Challenge →</button>
-</div>`;
+// DAILY CHALLENGE
+const daily=[
+{q:'What has keys but cannot open locks?',a:'keyboard'},
+{q:'What gets wetter as it dries?',a:'towel'},
+{q:'How many sides does a hexagon have?',a:'6'},
+{q:'What is 15 + 25?',a:'40'},
+{q:'Which planet is closest to the Sun?',a:'mercury'},
+{q:'What has hands but cannot clap?',a:'clock'},
+{q:'How many months have 28 days?',a:'12'}
+];
+let di=new Date().getDate()%daily.length;
+function newDaily(){
+ di=(di+1)%daily.length;
+ document.getElementById('dailyQuestion').textContent=daily[di].q;
+ document.getElementById('dailyAnswer').value='';
+ document.getElementById('dailyResult').textContent='';
 }
-
-function revealAnswer(){
-document.getElementById("riddleAnswer").textContent="Answer: "+riddles[currentRiddle][1];
+function checkDaily(){
+ let val=document.getElementById('dailyAnswer').value.trim().toLowerCase();
+ document.getElementById('dailyResult').textContent=val===daily[di].a?'Correct! Amazing! 🎉':'Not quite! Try again.';
 }
-
-home();
+document.getElementById('dailyQuestion').textContent=daily[di].q;
 </script>
 </body>
 </html>
