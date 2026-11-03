@@ -1,103 +1,389 @@
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>FUNX</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FUNX — Your World. Your Fun.</title>
 <style>
-body {
-  margin: 0;
-  font-family: Arial;
-  background: #f1edff;
-  color: #292044;
-  text-align: center;
-}
-header {
-  background: #211b43;
-  color: white;
-  padding: 20px;
-  font-size: 32px;
-  font-weight: bold;
-}
-header span { color: #22c7ff; }
-.hero {
-  background: linear-gradient(135deg,#7055f7,#22c7ff);
-  color: white;
-  padding: 65px 15px;
-}
-h1 { font-size: 40px; }
-section { padding: 25px; }
-.card {
-  background: white;
-  margin: 15px auto;
-  padding: 25px;
-  border-radius: 18px;
-  max-width: 350px;
-}
-button {
-  background: #7055f7;
-  color: white;
-  border: 0;
-  padding: 12px 20px;
-  border-radius: 10px;
-  cursor: pointer;
-}
+:root{--bg:#090817;--panel:#15132a;--blue:#655cff;--cyan:#27c9ff;--white:#f7f6ff;--muted:#aaa7c5}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(ellipse at top,#21194b 0%,#090817 60%);color:var(--white);font-family:Arial,sans-serif;min-height:100vh}
+header{padding:22px 6%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #ffffff18}
+.logo{font-size:29px;font-weight:900;letter-spacing:4px;background:linear-gradient(90deg,#fff,#7e78ff,#26d5ff);background-clip:text;color:transparent}
+.tag{font-size:10px;letter-spacing:3px;color:var(--muted);margin-top:5px}
+button{border:0;border-radius:12px;padding:12px 18px;background:linear-gradient(120deg,var(--blue),#248bff);color:white;font-weight:700;cursor:pointer}
+button:hover{filter:brightness(1.2)}
+main{max-width:1150px;margin:auto;padding:28px 18px 60px}
+.hero{padding:35px 22px;text-align:center;border:1px solid #ffffff20;border-radius:25px;background:linear-gradient(130deg,#29205b,#11152f);margin-bottom:28px}
+.hero h1{font-size:clamp(32px,7vw,58px);margin:8px 0;background:linear-gradient(90deg,#fff,#9b94ff,#40d9ff);background-clip:text;color:transparent}
+.hero p{color:var(--muted);line-height:1.6}
+.eyebrow{color:#63d9ff;font-size:12px;letter-spacing:3px;font-weight:bold}
+.section-title{font-size:22px;margin:25px 0 15px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+.tile{background:linear-gradient(145deg,#1d1a3b,#111126);border:1px solid #ffffff19;border-radius:19px;padding:19px 14px;min-height:135px;cursor:pointer;transition:.2s}
+.tile:hover{transform:translateY(-4px);border-color:#7770ff}
+.tile .emoji{font-size:29px}
+.tile h3{margin:13px 0 6px;font-size:16px}
+.tile p{color:var(--muted);font-size:12px;margin:0;line-height:1.5}
+.head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:24px}
+.head h1{font-size:28px;margin:5px 0}
+.head p{color:var(--muted);font-size:13px;margin:0}
+.head button{white-space:nowrap}
+.card{background:var(--panel);border:1px solid #ffffff20;border-radius:18px;padding:20px;margin:14px 0}
+.body{text-align:center;max-width:650px;margin:25px auto}
+input,select{width:100%;padding:13px;margin:9px 0;background:#0d0c20;border:1px solid #514b79;border-radius:11px;color:white;font-size:15px}
+.result{font-size:35px;letter-spacing:8px;margin:20px}
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.product{background:var(--panel);border:1px solid #ffffff1c;border-radius:16px;overflow:hidden}
+.product img{width:100%;height:135px;object-fit:cover;background:#24213d}
+.product div{padding:12px}
+.product h3{font-size:15px;margin:3px 0 7px}
+.product p{font-size:12px;color:var(--muted);line-height:1.5;margin:0}
+footer{text-align:center;padding:25px;color:#85819f;font-size:11px;letter-spacing:2px}
+@media(min-width:650px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.cards{grid-template-columns:repeat(3,minmax(0,1fr))}.hero{padding:55px}.product img{height:175px}}
+@media(min-width:950px){.grid{grid-template-columns:repeat(4,minmax(0,1fr))}.cards{grid-template-columns:repeat(4,minmax(0,1fr))}}
 </style>
 </head>
 <body>
-
-<header>FUN<span>X</span></header>
-
-<div class="hero">
-<h1>YOUR WORLD. YOUR FUN.</h1>
-<p>Play • Explore • Discover</p>
-<h2>Welcome to FUNX!</h2>
-</div>
-
-<section>
-<h2>🎮 GAME ZONE</h2>
-<div class="card">
-<h3>Guess the Number</h3>
-<p>Guess a number between 1 and 5</p>
-<input id="guess" type="number">
-<button onclick="play()">Play</button>
-<p id="result"></p>
-</div>
-
-<h2>🧠 QUIZ ZONE</h2>
-<div class="card">
-<p>Which is the largest planet?</p>
-<button onclick="document.getElementById('answer').innerText='Correct! Jupiter 🌟'">Jupiter</button>
-<button onclick="document.getElementById('answer').innerText='Try again!'">Earth</button>
-<p id="answer"></p>
-</div>
-
-<h2>🌍 DISCOVER</h2>
-<div class="card">
-<h3>📱 Technology</h3>
-<p>Explore amazing gadgets!</p>
-</div>
-<div class="card">
-<h3>🚗 Luxury Cars</h3>
-<p>Discover expensive cars!</p>
-</div>
-<div class="card">
-<h3>💎 Luxury World</h3>
-<p>Explore the world's fascinating treasures!</p>
-</div>
-</section>
-
-<footer>FUNX © 2026</footer>
-
+<header>
+<div><div class="logo">FUNX</div><div class="tag">YOUR WORLD. YOUR FUN.</div></div>
+<button onclick="home()">⌂ Home</button>
+</header>
+<main id="app"></main>
+<footer>FUNX © 2026 · YOUR WORLD. YOUR FUN.</footer>
 <script>
-function play() {
- let n = Number(document.getElementById("guess").value);
- let secret = Math.floor(Math.random()*5)+1;
- document.getElementById("result").innerText =
- n===secret ? "You won! 🎉" : "Try again! Number was "+secret;
+const app=document.getElementById("app");
+
+const sections=[
+["🎮","Games","Play fun mini games","gamesPage()"],
+["🧠","Quiz Zone","Test your knowledge","quizHome()"],
+["🛍️","Bestseller Explorer","Discover interesting products","explorer()"],
+["💎","Luxury World","Explore extraordinary things","luxuryPage()"],
+["⚡","This or That","Choose your favourites","thisPage()"],
+["🏆","Daily Challenge","A fresh brain teaser","dailyPage()"]
+];
+
+const products=[
+["Wireless Headphones","Technology","Enjoy music with wireless audio.","https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600"],
+["Smart Watch","Technology","A modern wearable gadget.","https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600"],
+["Running Shoes","Fashion","Comfortable everyday footwear.","https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600"],
+["Luxury Perfume","Beauty","A stylish fragrance discovery.","https://images.unsplash.com/photo-1541643600914-78b084683601?w=600"],
+["Camera","Technology","Capture memorable moments.","https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=600"],
+["Backpack","Fashion","A practical everyday bag.","https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600"],
+["Sunglasses","Fashion","A classic accessory.","https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=600"],
+["Gaming Controller","Gaming","A controller for gaming fun.","https://images.unsplash.com/photo-1600080972464-8e5f35f63d08?w=600"]
+];
+
+const lux=[
+["Sports Car","Cars","A look at modern performance-car design.","https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=700"],
+["Dream Mansion","Homes","Explore impressive architecture and interiors.","https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=700"],
+["Private Jet","Jets","A glimpse into private aviation.","https://images.unsplash.com/photo-1540962351504-03099e0a754b?w=700"],
+["Luxury Yacht","Yachts","Discover elegant yacht design.","https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?w=700"],
+["Designer Watch","Watches","A timeless style inspiration.","https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=700"],
+["Luxury Hotel","Hotels","Beautiful destinations and hospitality.","https://images.unsplash.com/photo-1566073771259-6a8506099945?w=700"]
+];
+
+function home(){
+app.innerHTML=`
+<section class="hero">
+<div class="eyebrow">WELCOME TO YOUR WORLD</div>
+<h1>Explore. Play. Discover.</h1>
+<p>One world, endless possibilities. Welcome to FUNX — your place for games, quizzes, discoveries and fun.</p>
+<button onclick="gamesPage()">Explore FUNX →</button>
+</section>
+<h2 class="section-title">Explore Your World</h2>
+<div class="grid">
+${sections.map(s=>`<div class="tile" onclick="${s[3]}"><div class="emoji">${s[0]}</div><h3>${s[1]}</h3><p>${s[2]}</p></div>`).join("")}
+</div>`;
+}
+
+function head(title,description=""){
+return `<div class="head"><div><h1>${title}</h1><p>${description}</p></div><button onclick="home()">← Home</button></div>`;
+}
+
+function gamesPage(){
+app.innerHTML=head("🎮 Games","Choose a game and have fun.")+`
+<div class="grid">
+<div class="tile" onclick="numberGame()"><div class="emoji">🔢</div><h3>Number Guess</h3><p>Find the hidden number.</p></div>
+<div class="tile" onclick="ticGame()"><div class="emoji">⭕</div><h3>Tic Tac Toe</h3><p>Challenge another player.</p></div>
+<div class="tile" onclick="memoryGame()"><div class="emoji">🧩</div><h3>Memory Match</h3><p>Find matching pairs.</p></div>
+<div class="tile" onclick="wordGame()"><div class="emoji">🔤</div><h3>Word Scramble</h3><p>Unscramble the letters.</p></div>
+</div>`;
+}
+
+function numberGame(){
+window.secret=Math.floor(Math.random()*20)+1;
+window.tries=0;
+app.innerHTML=head("🔢 Number Guess","Guess a number between 1 and 20.")+`
+<div class="card body">
+<input id="guess" type="number" min="1" max="20" placeholder="Enter your guess">
+<button onclick="checkGuess()">Check Guess</button>
+<p id="feedback">Let's see if you can find it!</p>
+<button onclick="numberGame()">New Game</button>
+</div>`;
+}
+
+function checkGuess(){
+let n=Number(document.getElementById("guess").value);
+let f=document.getElementById("feedback");
+if(!Number.isInteger(n)||n<1||n>20){f.textContent="Enter a whole number from 1 to 20.";return}
+window.tries++;
+f.textContent=n===window.secret?"🎉 You got it! Attempts: "+window.tries:n<window.secret?"Too low! Try a bigger number.":"Too high! Try a smaller number.";
+}
+
+function ticGame(){
+window.board=Array(9).fill("");
+window.turn="X";
+drawTic();
+}
+
+function drawTic(){
+app.innerHTML=head("⭕ Tic Tac Toe","Two players · X starts.")+`
+<div class="body">
+<h3 id="ticmsg">Player X's turn</h3>
+<div class="grid">${board.map((v,i)=>`<button style="font-size:30px;min-height:75px" onclick="playTic(${i})">${v||" "}</button>`).join("")}</div>
+<br><button onclick="ticGame()">Restart Game</button>
+</div>`;
+}
+
+function ticWinner(){
+for(let [a,b,c] of [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]]){
+if(board[a]&&board[a]===board[b]&&board[b]===board[c])return board[a];
+}
+return "";
+}
+
+function playTic(i){
+if(board[i]||ticWinner()||board.every(Boolean))return;
+board[i]=turn;
+let w=ticWinner();
+let draw=board.every(Boolean)&&!w;
+let next=turn==="X"?"O":"X";
+drawTic();
+document.getElementById("ticmsg").textContent=w?w+" wins! 🎉":draw?"It's a draw!":"Player "+next+"'s turn";
+turn=next;
+if(w||draw)turn="";
+}
+
+function memoryGame(){
+window.mem=["🍎","🚀","🎧","⭐","🍎","🚀","🎧","⭐"].sort(()=>Math.random()-.5);
+window.opened=[];
+window.found=[];
+drawMemory();
+}
+
+function drawMemory(){
+app.innerHTML=head("🧩 Memory Match","Find all four matching pairs.")+`
+<div class="body"><div class="grid">${mem.map((v,i)=>`<button style="font-size:29px;min-height:75px" onclick="flip(${i})">${found.includes(i)||opened.includes(i)?v:"❔"}</button>`).join("")}</div>
+<p id="memmsg">${found.length===8?"🎉 All pairs matched!":"Matched pairs: "+found.length/2+"/4"}</p>
+<button onclick="memoryGame()">Restart</button></div>`;
+}
+
+function flip(i){
+if(found.includes(i)||opened.includes(i)||opened.length===2)return;
+opened.push(i);
+drawMemory();
+if(opened.length===2){
+if(mem[opened[0]]===mem[opened[1]]){
+found.push(...opened);opened=[];drawMemory();
+}else{
+setTimeout(()=>{opened=[];drawMemory()},850);
+}
+}
+}
+
+function wordGame(){
+let words=["PLANET","GARDEN","SCHOOL","LAPTOP","ORANGE","PYTHON","ROCKET","PUZZLE"];
+window.word=words[Math.floor(Math.random()*words.length)];
+let scrambled=word.split("").sort(()=>Math.random()-.5).join("");
+if(scrambled===word)scrambled=word.slice(1)+word[0];
+app.innerHTML=head("🔤 Word Scramble","Put the letters in the correct order.")+`
+<div class="card body"><div class="result">${scrambled}</div>
+<input id="wordanswer" placeholder="Type your answer">
+<button onclick="checkWord()">Check</button>
+<p id="wordmsg"></p><button onclick="wordGame()">New Word</button></div>`;
+}
+
+function checkWord(){
+let a=document.getElementById("wordanswer").value.toUpperCase().trim();
+document.getElementById("wordmsg").textContent=a===word?"🎉 Correct!":"Not quite. Try again!";
 }
 </script>
-
 </body>
 </html>
 
+const quiz={
+"GK":[
+["Which is the largest ocean?","Atlantic","Indian","Pacific","Arctic",2],
+["How many days are in a leap year?","365","366","364","360",1],
+["Which is the capital of Japan?","Seoul","Tokyo","Beijing","Bangkok",1]],
+"Science":[
+["Which organ pumps blood?","Lungs","Heart","Brain","Kidney",1],
+["Which gas do plants absorb?","Oxygen","Carbon dioxide","Helium","Nitrogen",1],
+["Which planet is called the Red Planet?","Venus","Mars","Jupiter","Saturn",1]],
+"Technology":[
+["CPU means?","Central Processing Unit","Computer Power Unit","Core Program Unit","Central Personal User",0],
+["Who makes the iPhone?","Samsung","Apple","Google","Sony",1],
+["AI means?","Artificial Intelligence","Automatic Internet","Advanced Input","Applied Info",0]],
+"Space":[
+["Closest star to Earth?","Sirius","Sun","Polaris","Vega",1],
+["Planet famous for its rings?","Mars","Saturn","Earth","Mercury",1],
+["Our galaxy is called?","Andromeda","Milky Way","Whirlpool","Sombrero",1]],
+"Geography":[
+["Largest continent?","Africa","Asia","Europe","Australia",1],
+["Eiffel Tower is in?","Rome","London","Paris","Madrid",2],
+["Boot-shaped country?","Italy","India","Brazil","Japan",0]],
+"Animals":[
+["Fastest land animal?","Lion","Cheetah","Horse","Leopard",1],
+["Baby frog is called?","Cub","Tadpole","Calf","Chick",1],
+["Which mammal can fly?","Bat","Penguin","Ostrich","Koala",0]],
+"History":[
+["Great Wall is in?","India","China","Japan","Egypt",1],
+["First person on the Moon?","Yuri Gagarin","Neil Armstrong","Buzz Aldrin","John Glenn",1],
+["Pyramids of Giza are in?","Greece","Egypt","Mexico","Italy",1]],
+"Bollywood":[
+["Bollywood is based in?","Delhi","Mumbai","Jaipur","Kolkata",1],
+["Which is a film award?","Grammy","Filmfare","Tony","Pulitzer",1],
+["Hindi cinema is associated with?","Mumbai","Paris","Tokyo","London",0]],
+"Math & Logic":[
+["12 × 8 = ?","86","96","108","88",1],
+["Half of 150?","65","70","75","80",2],
+["2, 4, 8, 16, next?","18","24","32","30",2]]
+};
+
+function quizHome(){
+app.innerHTML=head("🧠 Quiz Zone","Choose a category and test yourself.")+
+`<div class="grid">${Object.keys(quiz).map(c=>`<div class="tile" onclick="startQuiz('${c}')"><div class="emoji">🧠</div><h3>${c}</h3><p>3 random questions</p></div>`).join("")}</div>`;
+}
+
+function startQuiz(cat){
+window.quizList=[...quiz[cat]].sort(()=>Math.random()-.5);
+window.qi=0;window.score=0;window.quizCat=cat;
+showQuestion();
+}
+
+function showQuestion(){
+if(qi>=quizList.length){
+app.innerHTML=head("🏆 Quiz Complete","Your results are ready.")+
+`<div class="card body"><div class="result">${score}/${quizList.length}</div><h2>${score===3?"Excellent! 🎉":score>=2?"Great work!":"Good try! Keep learning."}</h2><button onclick="startQuiz(quizCat)">Play Again</button><button onclick="quizHome()">Categories</button></div>`;
+return;
+}
+let q=quizList[qi];
+app.innerHTML=head("🧠 "+quizCat,"Question "+(qi+1)+" of "+quizList.length)+
+`<div class="card body"><h2>${q[0]}</h2>
+<div class="grid">${q.slice(1,5).map((a,i)=>`<button onclick="answerQuiz(${i})">${a}</button>`).join("")}</div>
+<p id="qfeedback"></p></div>`;
+}
+
+function answerQuiz(i){
+let q=quizList[qi];
+let f=document.getElementById("qfeedback");
+let buttons=document.querySelectorAll(".body .grid button");
+buttons.forEach(b=>b.disabled=true);
+if(i===q[5]){score++;f.textContent="🎉 Correct answer!";}
+else f.textContent="Not quite! Correct answer: "+q[q[5]+1];
+let next=document.createElement("button");
+next.textContent=qi===quizList.length-1?"See Result":"Next Question →";
+next.onclick=()=>{qi++;showQuestion()};
+f.after(next);
+}
+
+function explorer(){
+app.innerHTML=head("🛍️ Bestseller Explorer","Discover featured products and interesting finds.")+
+`<input id="searchProduct" placeholder="Search products or categories..." oninput="filterProducts()">
+<div class="cards" id="productList"></div>
+<p class="tag">Featured discoveries · Availability and popularity may vary.</p>`;
+filterProducts();
+}
+
+function filterProducts(){
+let box=document.getElementById("productList");
+if(!box)return;
+let q=document.getElementById("searchProduct").value.toLowerCase();
+let list=products.filter(p=>p.join(" ").toLowerCase().includes(q));
+box.innerHTML=list.length?list.map(p=>`<div class="product"><img src="${p[3]}" alt="${p[0]}"><div><h3>${p[0]}</h3><p>${p[1]} · ${p[2]}</p></div></div>`).join(""):"<p>No matching products found.</p>";
+}
+
+function luxuryPage(){
+app.innerHTML=head("💎 Luxury World","Explore extraordinary design and experiences.")+
+`<div class="cards">${lux.map(p=>`<div class="product"><img src="${p[3]}" alt="${p[0]}"><div><h3>${p[0]}</h3><p>${p[1]} · ${p[2]}</p></div></div>`).join("")}</div>`;
+}
+
+const choices=[
+["🏖️ Beach","⛰️ Mountains"],
+["📱 iPhone","📱 Samsung"],
+["🍕 Pizza","🍔 Burger"],
+["🏎️ Sports Car","🚙 SUV"],
+["🌆 City","🌳 Countryside"],
+["🎮 Gaming","📚 Reading"],
+["🇯🇵 Japan","🇮🇹 Italy"],
+["🌅 Sunrise","🌇 Sunset"],
+["☕ Tea","🥤 Coffee"],
+["🎬 Movies","🎵 Music"]
+];
+
+let choiceIndex=0;
+
+function thisPage(){
+choiceIndex=Math.floor(Math.random()*choices.length);
+drawChoice();
+}
+
+function drawChoice(){
+let pair=choices[choiceIndex];
+app.innerHTML=head("⚡ This or That","Choose your favourite!")+
+`<div class="card body">
+<div class="grid">
+<button style="font-size:20px;min-height:120px" onclick="chooseThis(0)">${pair[0]}</button>
+<button style="font-size:20px;min-height:120px" onclick="chooseThis(1)">${pair[1]}</button>
+</div>
+<p id="choiceMsg">Which one would you choose?</p>
+<button onclick="thisPage()">Next Pair →</button>
+</div>`;
+}
+
+function chooseThis(i){
+let p=choices[choiceIndex][i];
+document.getElementById("choiceMsg").textContent="Your choice: "+p+" 🎉";
+}
+
+const riddles=[
+["What has keys but cannot open locks?","A piano."],
+["What has a face and two hands but no arms?","A clock."],
+["What gets wetter as it dries?","A towel."],
+["What has one eye but cannot see?","A needle."],
+["What goes up but never comes down?","Your age."],
+["What has many teeth but cannot bite?","A comb."],
+["What travels around the world in one corner?","A stamp."],
+["What has a neck but no head?","A bottle."],
+["What has words but never speaks?","A book."],
+["What can you catch but not throw?","A cold."]
+];
+
+let currentRiddle=0;
+
+function dailyPage(){
+currentRiddle=Math.floor(Math.random()*riddles.length);
+drawRiddle();
+}
+
+function drawRiddle(){
+app.innerHTML=head("🏆 Daily Challenge","Give your brain a little workout.")+
+`<div class="card body">
+<div class="eyebrow">BRAIN TEASER</div>
+<h2>${riddles[currentRiddle][0]}</h2>
+<p id="riddleAnswer" style="color:#40d9ff;font-size:18px"></p>
+<button onclick="revealAnswer()">Reveal Answer</button>
+<button onclick="dailyPage()">Next Challenge →</button>
+</div>`;
+}
+
+function revealAnswer(){
+document.getElementById("riddleAnswer").textContent="Answer: "+riddles[currentRiddle][1];
+}
+
+home();
+</script>
+</body>
+</html>
